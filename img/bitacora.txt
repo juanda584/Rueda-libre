@@ -1,0 +1,39 @@
+url
+http://127.0.0.1:5500/rueda-libre/index.html
+
+protocolo
+http
+
+host
+127.0.0.1:5500
+
+puerto
+5500
+
+ruta
+/rueda-libre/index.html
+
+metodo de peticion
+GET
+
+codigo de estado
+304 Not Modified
+
+aparece 404 Not found cannot GET lo que esta pasando es que el
+ archivo no fue encontrado debido al cambio de ruta
+
+HTML Estructura: Define el contenido y esqueleto de la página.
+
+Ejemplo: El título <h1>Rueda Libre - Alquiler de Bicicletas</h1>
+ y el botón <button> de reserva.
+
+CSS (Diseño): Aplica la apariencia visual y adaptabilidad a dispositivos.
+
+Ejemplo: Darle color verde al botón de reserva (background-color: green)
+ y organizar el catálogo de bicicletas en una cuadrícula.
+
+JavaScript (Interactividad): Aporta lógica y comportamiento dinámico.
+
+Ejemplo: Calcular automáticamente el costo total según las horas de
+
+ alquiler seleccionadas antes de enviar la reserva.
