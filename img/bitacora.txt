@@ -37,3 +37,29 @@ JavaScript (Interactividad): Aporta lógica y comportamiento dinámico.
 Ejemplo: Calcular automáticamente el costo total según las horas de
 
  alquiler seleccionadas antes de enviar la reserva.
+ 
+
+
+
+
+*Archivo de Origen,Destino,Ruta Escrita (href),Descripción / Contexto
+
+index.html,index.html,"""index.html""",Enlace al Inicio desde la raíz.
+
+index.html,tarifas.html,"""paginas/tarifas.html""",Entra a la subcarpeta paginas/.
+
+index.html,reservas.html,"""paginas/reservas.html""",Entra a la subcarpeta paginas/.
+
+index.html,Sección Recorridos,"""#recorridos""",Enlace interno por id en la misma página.
+
+paginas/tarifas.html,index.html,"""../index.html""",Sube un nivel (../) hacia la raíz.
+
+paginas/tarifas.html,reservas.html,"""reservas.html""",Enlace entre archivos de la misma carpeta.
+
+paginas/reservas.html,index.html,"""../index.html""",Sube un nivel (../) hacia la raíz.
+
+paginas/reservas.html,tarifas.html,"""tarifas.html""",Enlace entre archivos de la misma carpeta.
+
+Cualquier página,Sección en Tarifas,"""paginas/tarifas.html#recorridos"" (desde raíz)""tarifas.html#recorridos, enlace a una sección específica (#id) de otra página.
+
+Cualquier página,Correo electrónico,"""mailto:contacto@ruedalibre.com""",Protocolo para abrir cliente de correo.
