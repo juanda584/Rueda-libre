@@ -142,3 +142,18 @@ Cualquier página,Correo electrónico,"""mailto:contacto@ruedalibre.com""",Proto
 
 ~no hubo ningun div o span que documentar
 
+#Justificaciones
+
+~Fecha del Alquiler: Campo de Fecha (input type="date")
+
+• Justificación: Soluciona el error de fechas equivocadas de WhatsApp al desplegar un calendario visual interactivo. Elimina por completo las confusiones de formato o de digitación, asegurando que el cliente reserve exactamente el día correcto.
+
+~Tipo de Bicicleta y Planes: Listas Desplegables (<select>)
+
+• Justificación: Resuelve el problema de bicicletas no disponibles al limitar las opciones del usuario únicamente al stock real del negocio es decirUrbana, Montaña, Eléctrica. Al no permitir texto libre, el cliente no puede inventar opciones inexistentes.
+
+3. Datos Obligatorios: Atributo required en los campos clave
+
+• Justificación: Elimina de raíz los datos incompletos, bloquea físicamente el envío del formulario mediante el método POST si falta algún campo vital como el celular o documento, forzando al navegador a avisar al usuario antes de procesar la reserva.
+
+
