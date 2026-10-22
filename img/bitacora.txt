@@ -1,3 +1,5 @@
+#especificaciones devtools
+
 url
 http://127.0.0.1:5500/rueda-libre/index.html
 
@@ -40,7 +42,7 @@ Ejemplo: Calcular automáticamente el costo total según las horas de
  
 
 
-
+#tabla
 
 *Archivo de Origen,Destino,Ruta Escrita (href),Descripción / Contexto
 
@@ -63,3 +65,80 @@ paginas/reservas.html,tarifas.html,"""tarifas.html""",Enlace entre archivos de l
 Cualquier página,Sección en Tarifas,"""paginas/tarifas.html#recorridos"" (desde raíz)""tarifas.html#recorridos, enlace a una sección específica (#id) de otra página.
 
 Cualquier página,Correo electrónico,"""mailto:contacto@ruedalibre.com""",Protocolo para abrir cliente de correo.
+
+
+#estructura semantica documento
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta>
+    <title></title>
+  </head>
+  <body>
+
+    <header>
+      <nav>
+        <ul>
+          <li><a></a></li>
+          <li><a></a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <header>
+          <h1></h1>
+        </header>
+        <article>
+          <h2></h2>
+          <p></p>
+        </article>
+      </section>
+
+      <aside>
+      </aside>
+    </main>
+
+    <footer>
+    </footer>
+
+  </body>
+</html>
+
+
+#estructura semantica tablas
+
+<table>
+  <caption></caption>
+  
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+
+  <tfoot>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+  </tfoot>
+</table>
+
+
+~no hubo ningun div o span que documentar
+
