@@ -1,142 +1,151 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>reserva tu bicicleta</title>
+    <title>Reserva tu bicicleta - Rueda Libre</title>
 </head>
 <body>
     <header>
-    <nav>
-        <ul>
-            <li> <a href="/inicio.html">Inicio</a></li>
-            <li><a href="/paginas/tarifas.html">Tarifas y rutas</a></li>
-        </ul>
-    </nav>
-    
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="/inicio.html">Inicio</a></li>
+                <li><a href="/paginas/tarifas.html">Tarifas y rutas</a></li>
+            </ul>
+        </nav>
+        
         <h1>Reserva tu bicicleta</h1>
     </header>
 
     <main>
-        
-        <section>
-            <h2>Contacto para reservas</h2>
+        <section aria-labelledby="sec-contacto">
+            <h2 id="sec-contacto">Contacto para reservas</h2>
             <p>
                 Para realizar o confirmar tu reserva, escríbenos a nuestro correo electrónico: 
                 <a href="mailto:reservas@ruedalibre.com">reservas@ruedalibre.com</a>
             </p>
         </section>
 
-        <section>
-    <h2>Horario de atención</h2>
-    
-    <table>
-        <tbody>
-          
-            <tr>
-                <td><strong>Lunes a Viernes</strong></td>
-                <td>7:00 a. m. a 7:00 p. m.</td>
-            </tr>
+        <section aria-labelledby="sec-horario">
+            <h2 id="sec-horario">Horario de atención</h2>
             
-            <tr>
-                <td><strong>Sábados, Domingos y Festivos</strong></td>
-                <td>6:00 a. m. a 2:00 p. m.</td>
-            </tr>
-        </tbody>
-    </table>
-</section>
+            <table>
+                <caption>Horario de atención telefónica y presencial</caption>
+                <tbody>
+                    <tr>
+                        <th scope="row">Lunes a Viernes</th>
+                        <td>7:00 a. m. a 7:00 p. m.</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Sábados, Domingos y Festivos</th>
+                        <td>6:00 a. m. a 2:00 p. m.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
         <form action="" method="post">
-        <fieldset>
-            <legend>Tus datos</legend>
+            
+            <fieldset>
+                <legend>Tus datos</legend>
+                <table style="border: 0;" cellpadding="5">
+                    <tr>
+                        <td><label for="nombre">Nombre completo:</label></td>
+                        <td>
+                            <input type="text" id="nombre" name="nombre_completo" minlength="3" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="documento">Número de documento:</label></td>
+                        <td>
+                            <input type="text" id="documento" name="numero_documento" pattern="[0-9]{6,10}" title="Debe contener entre 6 y 10 dígitos numéricos" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="email">Correo electrónico:</label></td>
+                        <td>
+                            <input type="email" id="email" name="correo_electronico" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="celular">Celular:</label></td>
+                        <td>
+                            <input type="tel" id="celular" name="celular_contacto" pattern="3[0-9]{9}" title="Debe tener 10 dígitos y empezar por 3" required>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
 
-            <table style="border: 0;" cellpadding="5">
-      <tr>
-        <td><label for="nombre">Nombre completo:</label></td>
-        <td><input type="text" id="nombre" name="nombre_completo" minlength="3" required ></td>
-      </tr>
-      <tr>
-        <td><label for="documento">Número de documento:</label></td>
-        <td><input type="text" id="documento" name="numero_documento" pattern="[0-9]{6,10}" title="debe contener entre 6 y 10 digitos numericos"></td>
-      </tr>
-      <tr>
-        <td><label for="email">Correo electrónico:</label></td>
-        <td><input type="email" id="email" name="correo_electronico" required></td>
-      </tr>
-      <tr>
-        <td><label for="celular">Celular:</label></td>
-        <td><input type="tel" id="celular" name="celular_contacto" pattern="3[0-9]{9}" title="debe tner 10 digitos y empezar por 3" required></td>
-      </tr>
-      
-    </table>
-  </fieldset>
-  <fieldset>
+            <fieldset>
+                <legend>Tu alquiler</legend>
+                <table style="border: 0;" cellpadding="5">
+                    <tr>
+                        <td><label for="fecha">Fecha del alquiler:</label></td>
+                        <td>
+                            <input type="date" id="fecha" name="fecha_alquiler" min="2026-11-01" max="2026-12-31" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="tipo_bici">Tipo de bicicleta:</label></td>
+                        <td>
+                            <select id="tipo_bici" name="tipo_bicicleta" required>
+                                <option value="" disabled selected>Selecciona una opción</option>
+                                <option value="urbana">Urbana</option>
+                                <option value="montana">Montaña</option>
+                                <option value="electrica">Eléctrica</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="plan">Plan de alquiler:</label></td>
+                        <td>
+                            <select id="plan" name="plan_alquiler" required>
+                                <option value="" disabled selected>Selecciona la duración</option>
+                                <option value="1_hora">1 hora</option>
+                                <option value="medio_dia">Medio día</option>
+                                <option value="dia_completo">Día completo</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="cantidad">Cantidad de bicicletas:</label></td>
+                        <td>
+                            <input type="number" id="cantidad" name="cantidad_bicicletas" value="1" min="1" max="6" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="guia">Recorrido guiado:</label></td>
+                        <td>
+                            <select id="guia" name="recorrido_guiado" required>
+                                <option value="ninguno">Ninguno (Alquiler libre)</option>
+                                <option value="ruta_1">Ruta Turística Histórica</option>
+                                <option value="ruta_2">Ruta de la Naturaleza / Montaña</option>
+                                <option value="ruta_3">Ruta Nocturna de la Ciudad</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="comentarios">Comentarios:</label></td>
+                        <td>
+                            <textarea id="comentarios" name="comentarios" maxlength="300"></textarea>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
 
-  </fieldset>
-  <legend>Tu alquiler</legend>
+            <fieldset>
+                <legend>Confirmación</legend>
+                <p>
+                    <label for="politicas">
+                        <input type="checkbox" id="politicas" name="politicas_aceptadas" value="si" required>
+                        Acepto las políticas de alquiler, uso del equipo y responsabilidad vial.
+                    </label>
+                </p>
+            </fieldset>
 
-    <table style="border: 0;" cellpadding="5">
-      <tr>
-        <td><label for="fecha">Fecha del alquiler:</label></td>
-        <td><input type="date" id="fecha" name="fecha_alquiler" min="2026-11-01" max="2026-12-31" required></td>
-      </tr>
-      <tr>
-        <td><label for="tipo_bici">Tipo de bicicleta:</label></td>
-        <td>
-          <select id="tipo_bici" name="tipo_bicicleta" required>
-            <option value="" disabled selected>Selecciona una opción</option>
-            <option value="urbana">Urbana</option>
-            <option value="montana">Montaña</option>
-            <option value="electrica">Eléctrica</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="plan">Plan de alquiler:</label></td>
-        <td>
-          <select id="plan" name="plan_alquiler" required>
-            <option>Selecciona la duración</option>
-            <option value="1_hora">1 hora</option>
-            <option value="medio_dia">Medio día</option>
-            <option value="dia_completo">Día completo</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="cantidad">Cantidad de bicicletas:</label></td>
-        <td><input type="number" id="cantidad" name="cantidad_bicicletas" min="1" max="6" required></td>
-      </tr>
-      <tr>
-        <td><label for="guia">Recorrido guiado:</label></td>
-        <td>
-          <select id="guia" name="recorrido_guiado" required>
-            <option value="ninguno">Ninguno lquiler libre</option>
-            <option value="ruta_1">Ruta Turística Histórica</option>
-            <option value="ruta_2">Ruta de la Naturaleza / Montaña</option>
-            <option value="ruta_3">Ruta Nocturna de la Ciudad</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="comentarios">Comentarios:</label></td>
-        <td><textarea id="comentarios" name="comentarios"></textarea></td>
-      </tr>
-    </table>
-  </fieldset>
-  <legend>Confirmación</legend>
-    <p>
-      <label>
-        <input type="checkbox" name="politicas_aceptadas" value="si" required>
-        Acepto las políticas de alquiler, uso del equipo y responsabilidad vial.
-      </label>
-    </p>
-  </fieldset>
-
-  <br>
-  
-  <button type="submit">Enviar Reserva de Bicicleta</button>
-
-    </form>
+            <br>
+            <button type="submit">Enviar Reserva de Bicicleta</button>
+        </form>
     </main>
 
     <footer>

@@ -157,12 +157,235 @@ Cualquier página,Correo electrónico,"""mailto:contacto@ruedalibre.com""",Proto
 • Justificación: Elimina de raíz los datos incompletos, bloquea físicamente el envío del formulario mediante el método POST si falta algún campo vital como el celular o documento, forzando al navegador a avisar al usuario antes de procesar la reserva.
 
 
-Campo,Dato de prueba,Resultado esperado,Resultado obtenido
-1. Nombre completo (nombre),"""Lu"""," El navegador bloquea el envío y muestra un aviso indicando que se requiere un mínimo de 3 caracteres (minlength=""3"").",El navegador mostró el mensaje de validación y detuvo el envío.
-2. Número de documento (documento),"""12345""","El navegador bloquea el envío porque no cumple con el patrón de 6 a 10 dígitos numéricos (pattern=""[0-9]{6,10}"").",El navegador detectó el error de longitud y bloqueó el formulario.
-3. Número de documento (documento),"""123456a""",El navegador bloquea el envío porque contiene una letra y el patrón solo permite números ([0-9]).,El navegador rechazó el carácter no numérico y detuvo el envío.
-4. Correo electrónico (email),"""correosinarroba.com""","El navegador detecta que falta el símbolo @ y muestra un mensaje de formato de correo inválido (type=""email"").",El navegador advirtió que el correo estaba incompleto y detuvo el envío.
-5. Celular (celular),"""4123456789""","El navegador bloquea el envío porque el patrón exige que el número empiece obligatoriamente por el dígito 3 (pattern=""3[0-9]{9}"").",El navegador rechazó el dato por incumplir el inicio requerido y detuvo el envío.
-6. Fecha del alquiler (fecha),"""2026-10-31""","El navegador bloquea el envío por estar fuera del rango permitido, ya que el mínimo es el 2026-11-01 (min).",El navegador indicó que la fecha es anterior al rango permitido y bloqueó el envío.
-7. Cantidad de bicicletas (cantidad),7,"El navegador bloquea el envío porque el valor ingresado supera el límite máximo permitido de 6 (max=""6"").",El navegador detectó que se superó el límite máximo y detuvo el envío.
-8. Políticas de alquiler (politicas_aceptadas),[No marcado / Vacío],El navegador impide enviar el formulario porque el checkbox de aceptación es obligatorio (required).,El navegador señaló que es obligatorio aceptar las políticas para continuar.
+#pruebas de Validación
+
+~Nombre completo (nombre)
+
+Dato de prueba: "Lu"
+
+Resultado esperado: El navegador bloquea el envío y muestra un aviso indicando que se requiere un mínimo de 3 caracteres (minlength="3").
+
+Resultado obtenido: El navegador mostró el mensaje de validación y detuvo el envío.
+
+~Número de documento (documento) — Longitud insuficiente
+
+Dato de prueba: "12345"
+
+Resultado esperado: El navegador bloquea el envío porque no cumple con el patrón de 6 a 10 dígitos numéricos (pattern="[0-9]{6,10}").
+
+Resultado obtenido: El navegador detectó el error de longitud y bloqueó el formulario.
+
+~Número de documento (documento) — Carácter inválido
+
+Dato de prueba: "123456a"
+
+Resultado esperado: El navegador bloquea el envío porque contiene una letra y el patrón solo permite números ([0-9]).
+
+Resultado obtenido: El navegador rechazó el carácter no numérico y detuvo el envío.
+
+~Correo electrónico (email)
+
+Dato de prueba: "correosinarroba.com"
+
+Resultado esperado: El navegador detecta que falta el símbolo @ y muestra un mensaje de formato de correo inválido (type="email").
+
+Resultado obtenido: El navegador advirtió que el correo estaba incompleto y detuvo el envío.
+
+~Celular (celular)
+
+Dato de prueba: "4123456789"
+
+Resultado esperado: El navegador bloquea el envío porque el patrón exige que el número empiece obligatoriamente por el dígito 3 (pattern="3[0-9]{9}").
+
+Resultado obtenido: El navegador rechazó el dato por incumplir el inicio requerido y detuvo el envío.
+
+~Fecha del alquiler (fecha)
+
+Dato de prueba: "2026-10-31"
+
+Resultado esperado: El navegador bloquea el envío por estar fuera del rango permitido, ya que el mínimo es el 2026-11-01 (min).
+
+Resultado obtenido: El navegador indicó que la fecha es anterior al rango permitido y bloqueó el envío.
+
+~Cantidad de bicicletas (cantidad)
+
+Dato de prueba: 7
+
+Resultado esperado: El navegador bloquea el envío porque el valor ingresado supera el límite máximo permitido de 6 (max="6").
+
+Resultado obtenido: El navegador detectó que se superó el límite máximo y detuvo el envío.
+
+~Políticas de alquiler (politicas_aceptadas)
+
+Dato de prueba: [No marcado / Vacío]
+
+Resultado esperado: El navegador impide enviar el formulario porque el checkbox de aceptación es obligatorio (required).
+
+Resultado obtenido: El navegador señaló que es obligatorio aceptar las políticas para continuar.
+
+
+#Auditoría de Accesibilidad (reservas.html)
+~Textos alternativos (alt)
+
+Estado encontrado: No aplica / A revisar.
+
+Diagnóstico y acción correctiva: El HTML analizado no cuenta con etiquetas <img>. Si agregas imágenes en otras páginas, recuerda incluir alt="descripción" para imágenes informativas o alt="" para imágenes puramente decorativas.
+
+~Jerarquía de encabezados
+
+Estado encontrado: Incompleta.
+
+Diagnóstico y acción correctiva: Se salta la jerarquía al usar directamente <h2> en secciones sin un contenedor formal estructurado. Se debe asegurar el orden <h1> -> <h2> -> <h3> sin saltar niveles.
+
+~Textos de enlace accesibles
+
+Estado encontrado:  A corregir.
+
+Diagnóstico y acción correctiva: Los enlaces del menú dicen "Inicio" y "Tarifas y rutas", lo cual es correcto. Sin embargo, en el select de opciones de guías dice "Ninguno lquiler libre" (con error tipográfico). Debemos asegurar que todos los textos tengan contexto claro.
+
+~Recorrido con teclado (Tab)
+
+Estado encontrado: Con fallas de código.
+
+Diagnóstico y acción correctiva: Hay varios errores en la sintaxis HTML (etiquetas <fieldset> mal cerradas y etiquetas <legend> fuera de contexto) que alteran el árbol de accesibilidad y confunden a los lectores de pantalla al navegar con el teclado.
+
+
+#Auditoría de Accesibilidad (tarifas.html)
+
+~Textos alternativos (alt)
+
+Estado encontrado: A mejorar.
+
+Diagnóstico y acción correctiva: El texto alternativo de la imagen era muy genérico (alt="logo") y había una etiqueta de cierre huérfana (</a>). Se corrigió por una descripción clara (alt="Logo de Rueda Libre") y se limpió el código.
+
+~Jerarquía de encabezados
+
+Estado encontrado: Cotrrecta.
+
+Diagnóstico y acción correctiva: La jerarquía cumple el orden lógico (<h1> ➔ <h2> ➔ <h3>), aunque se ajustaron las mayúsculas iniciales de los textos para mayor profesionalismo y claridad visual.
+
+~Textos de enlace accesibles
+
+Estado encontrado: Correctos.
+
+Diagnóstico y acción correctiva: Los enlaces del menú y los botones tienen contexto claro ("Inicio", "Reservas", "Ir al inicio", "Reservar ahora"). Se estandarizó su capitalización.
+
+~Recorrido con teclado y estructura
+
+Estado encontrado: Con fallas graves.
+
+Diagnóstico y acción correctiva: Existían errores críticos de sintaxis: una etiqueta de cierre huérfana (</a>), etiquetas <section> abiertas dentro de <header> y mal cerradas. Se reestructuró el árbol DOM para permitir una navegación fluida con lectores de pantalla y teclado.
+
+
+#Auditoría de accesibilidad (inicio.html)
+
+~Textos alternativos (alt)
+
+Estado encontrado: A mejorar / Errores de sintaxis.
+
+Diagnóstico y acción correctiva: Los textos alternativos de las imágenes eran genéricos o tenían errores tipográficos (alt="logo", alt="ruta", alt="bicleta"). Además, todas las etiquetas de imagen tenían cierres incorrectos e innecesarios (<img>). Se cambiaron por textos claros (ej. alt="Logo de Rueda Libre", alt="Grupo en recorrido guiado en bicicleta") y se eliminaron las etiquetas de cierre sobrantes.
+
+~Jerarquía de encabezados
+
+Estado encontrado: Con fallas de estructura.
+
+Diagnóstico y acción correctiva: El encabezado "Nuestros servicios" estaba fuera de su etiqueta <section> contenedora. Además, en la sección de alquiler había un <h3> repetitivo con el título "cómo alquilar?" inmediatamente después de un <h2> con el mismo nombre. Se organizaron los niveles de encabezados adecuadamente.
+
+~Textos de enlace accesibles
+
+Estado encontrado: correctos.
+
+Diagnóstico y acción correctiva: Los textos de enlace tienen buen contexto ("Encuéntranos", "Tabla de recorridos", "Ver ubicación en Google Maps", "Reservar ahora"), pero requerían correcciones en ortografía, tildes y capitalización para ser más profesionales.
+
+~Recorrido con teclado y estructura
+
+Estado encontrado: Con errores graves de HTML.
+
+Diagnóstico y acción correctiva: Había etiquetas <main> duplicadas (una colocada dentro del <head> por error), cierres de <section> fuera de lugar y atributos mal escritos (rel="noopener noferrer " con error tipográfico). Se limpió la sintaxis completa para asegurar que la navegación por teclado (Tab) y lectores de pantalla sea fluida.
+
+
+#Clasificacion de colores paleta
+
+~texto blanco sobre verde ruta: apto para texto normal y grande
+
+~blanco sobre naranja pedal: no es apto
+
+~azul noche sobre naranja pedal: apto para texto normal y grande
+
+~azul noche sobre naranja crema: apto para texto normal y grande
+
+~gris asfalto sobre crema: apto para texto normal y grande
+
+~verde ruta sobre crema: apto para texto normal y grande
+
+~naranja pedal sobre crema: no es apto
+
+~blanco sobre azul noche: apto para texto normal y grande
+
+
+#Mapa de color de uso
+
+~Fondo principal (Fondo de la página)
+
+Rol: background-color principal.
+
+Código HEX: #F8FAFC
+
+Descripción: Blanco pizarra / frío (aporta limpieza y descanso visual).
+
+~Fondo secundario (Tarjetas, tablas, formularios)
+
+Rol: Contenedores sobre el fondo.
+
+Código HEX: #FFFFFF
+
+Descripción: Blanco puro.
+
+~Texto principal (Encabezados y párrafos)
+
+Rol: Color general del texto.
+
+Código HEX: #0F172A
+
+Descripción: Azul pizarra muy oscuro (más suave para la vista que el negro puro).
+
+~Texto secundario (Subtítulos y notas)
+
+Rol: Texto complementario o de apoyo.
+
+Código HEX: #475569
+
+Descripción: Gris pizarra medio.
+
+~Botón primario (Fondo del botón)
+
+Rol: Botones de acción principales como "Enviar Reserva".
+
+Código HEX: #2563EB
+
+Descripción: Azul brillante tipo desarrollador / SaaS.
+
+~Texto del botón
+
+Rol: Texto dentro de botones oscuros.
+
+Código HEX: #FFFFFF
+
+Descripción: Blanco puro.
+
+~Enlaces e hipervínculos
+
+Rol: Enlaces navegables (<a>).
+
+Código HEX: #1D4ED8
+
+Descripción: Azul oscuro vibrante.
+
+~Bordes y separadores
+
+Rol: Líneas de tablas, bordes de inputs y fieldsets.
+
+Código HEX: #E2E8F0
+
+Descripción: Gris claro neutro.
+
