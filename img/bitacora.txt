@@ -157,3 +157,12 @@ Cualquier página,Correo electrónico,"""mailto:contacto@ruedalibre.com""",Proto
 • Justificación: Elimina de raíz los datos incompletos, bloquea físicamente el envío del formulario mediante el método POST si falta algún campo vital como el celular o documento, forzando al navegador a avisar al usuario antes de procesar la reserva.
 
 
+Campo,Dato de prueba,Resultado esperado,Resultado obtenido
+1. Nombre completo (nombre),"""Lu"""," El navegador bloquea el envío y muestra un aviso indicando que se requiere un mínimo de 3 caracteres (minlength=""3"").",El navegador mostró el mensaje de validación y detuvo el envío.
+2. Número de documento (documento),"""12345""","El navegador bloquea el envío porque no cumple con el patrón de 6 a 10 dígitos numéricos (pattern=""[0-9]{6,10}"").",El navegador detectó el error de longitud y bloqueó el formulario.
+3. Número de documento (documento),"""123456a""",El navegador bloquea el envío porque contiene una letra y el patrón solo permite números ([0-9]).,El navegador rechazó el carácter no numérico y detuvo el envío.
+4. Correo electrónico (email),"""correosinarroba.com""","El navegador detecta que falta el símbolo @ y muestra un mensaje de formato de correo inválido (type=""email"").",El navegador advirtió que el correo estaba incompleto y detuvo el envío.
+5. Celular (celular),"""4123456789""","El navegador bloquea el envío porque el patrón exige que el número empiece obligatoriamente por el dígito 3 (pattern=""3[0-9]{9}"").",El navegador rechazó el dato por incumplir el inicio requerido y detuvo el envío.
+6. Fecha del alquiler (fecha),"""2026-10-31""","El navegador bloquea el envío por estar fuera del rango permitido, ya que el mínimo es el 2026-11-01 (min).",El navegador indicó que la fecha es anterior al rango permitido y bloqueó el envío.
+7. Cantidad de bicicletas (cantidad),7,"El navegador bloquea el envío porque el valor ingresado supera el límite máximo permitido de 6 (max=""6"").",El navegador detectó que se superó el límite máximo y detuvo el envío.
+8. Políticas de alquiler (politicas_aceptadas),[No marcado / Vacío],El navegador impide enviar el formulario porque el checkbox de aceptación es obligatorio (required).,El navegador señaló que es obligatorio aceptar las políticas para continuar.
