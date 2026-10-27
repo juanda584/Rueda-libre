@@ -393,3 +393,14 @@ Descripción: Gris claro neutro.
 #link pagina rueda-libre
 
 https://juanda584.github.io/rueda-libre/
+
+
+#Herencia tipográfica y de color
+
+Verificación en el navegador, en los estilos aplicados y los valores computados de un párrafo de <main>:
+
+Propiedad heredada: color. El párrafo computa rgb(15, 23, 42), igual que el <body>.
+
+Propiedad heredada: font-family. El párrafo computa "Open Sans", Arial, sans-serif, igual que el <body>.
+
+Propiedad no heredada: background-color. El <body> computa rgb(248, 250, 252), mientras que el párrafo computa transparente (rgba(0, 0, 0, 0)); el color de fondo no se hereda.
