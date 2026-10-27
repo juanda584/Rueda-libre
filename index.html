@@ -12,7 +12,8 @@
 <body>
     <header>
         <nav aria-label="Navegación principal">
-            <ul>
+            <ul id="menu">
+                <li><a href="index.html" class="activo" aria-current="page">Inicio</a></li>
                 <li><a href="tarifas.html">Tarifas y rutas</a></li>
                 <li><a href="reservas.html">Reservas</a></li>
             </ul>
@@ -23,7 +24,7 @@
         </div>
     </header>
 
-    <main>
+    <main id="inicio">
         <p>Bienvenidos a Rueda Libre, tu solución para alquiler de bicicletas en Medellín.</p>
         
         <section>
@@ -32,7 +33,7 @@
             <a href="#encuentranos">Encuéntranos</a>
         </section>
         
-        <section>
+        <section id="servicios">
             <h2>Nuestros servicios</h2>
             
             <article>
@@ -48,6 +49,7 @@
             </article>
 
             <article>
+                <span class="service-badge">Nuevo</span>
                 <h3>Mantenimiento rápido</h3>
                 <p>Revisión y puesta a punto para tu bicicleta personal.</p>
             </article>
@@ -86,7 +88,7 @@
                 <a href="https://www.google.com/maps/@6.2497255,-75.6054989,1537a,85.3y,275.57h,89.07t" target="_blank" rel="noopener noreferrer">Ver ubicación en Google Maps</a>
             </p>
             <p><a href="tarifas.html">Conoce nuestras tarifas</a></p>
-            <p><a href="reservas.html">Reservar ahora</a></p>
+            <p><a class="cta-link" href="reservas.html">Reservar ahora</a></p>
         </section>
     </main>
 
@@ -97,5 +99,8 @@
             2026
         </p>
     </footer>
+    <a class="whatsapp-link" href="https://wa.me/?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Rueda%20Libre" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+        WhatsApp
+    </a>
 </body>
 </html>

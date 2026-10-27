@@ -12,9 +12,10 @@
 <body>
     <header>
         <nav aria-label="Navegación principal">
-            <ul>
+            <ul id="menu">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="reservas.html">Reservas</a></li>
+                <li><a href="tarifas.html" class="activo" aria-current="page">Tarifas y rutas</a></li>
             </ul>
         </nav>
         <div>
@@ -25,73 +26,77 @@
 
     <main>
         <section>
-            <table>
-                <caption>Tarifas oficiales de alquiler de bicicletas - Rueda Libre</caption>
-                <thead>
-                    <tr>
-                        <th scope="col">Tipo de Bicicleta</th>
-                        <th scope="col">Precio por Hora</th>
-                        <th scope="col">Precio por Día</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">Bicicleta Urbana</th>
-                        <td>$ 5.000</td>
-                        <td>$ 30.000</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Bicicleta Eléctrica</th>
-                        <td>$ 12.000</td>
-                        <td>$ 70.000</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Bicicleta de Montaña</th>
-                        <td>$ 8.000</td>
-                        <td>$ 45.000</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-scroll">
+                <table>
+                    <caption>Tarifas oficiales de alquiler de bicicletas - Rueda Libre</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Tipo de Bicicleta</th>
+                            <th scope="col">Precio por Hora</th>
+                            <th scope="col">Precio por Día</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Bicicleta Urbana</th>
+                            <td>$ 5.000</td>
+                            <td>$ 30.000</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Bicicleta Eléctrica</th>
+                            <td>$ 12.000</td>
+                            <td>$ 70.000</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Bicicleta de Montaña</th>
+                            <td>$ 8.000</td>
+                            <td>$ 45.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 
         <section id="recorridos">
             <h2>Recorridos Guiados</h2>
             <p>Descubre los mejores destinos de la ciudad con nuestros guías expertos.</p>
             
-            <table>
-                <caption>Opciones y rutas de recorridos guiados - Rueda Libre</caption>
-                <thead>
-                    <tr>
-                        <th scope="col">Nombre del Recorrido</th>
-                        <th scope="col">Duración</th>
-                        <th scope="col">Dificultad</th>
-                        <th scope="col">Precio</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">Ruta Histórica</th>
-                        <td>3 horas</td>
-                        <td>Fácil</td>
-                        <td>$ 25.000</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Miradores de la Ciudad</th>
-                        <td>4 horas</td>
-                        <td>Intermedio</td>
-                        <td>$ 35.000</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Paseo Nocturno</th>
-                        <td>2 horas</td>
-                        <td>Fácil</td>
-                        <td>$ 20.000</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-scroll">
+                <table>
+                    <caption>Opciones y rutas de recorridos guiados - Rueda Libre</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre del Recorrido</th>
+                            <th scope="col">Duración</th>
+                            <th scope="col">Dificultad</th>
+                            <th scope="col">Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Ruta Histórica</th>
+                            <td>3 horas</td>
+                            <td>Fácil</td>
+                            <td>$ 25.000</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Miradores de la Ciudad</th>
+                            <td>4 horas</td>
+                            <td>Intermedio</td>
+                            <td>$ 35.000</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Paseo Nocturno</th>
+                            <td>2 horas</td>
+                            <td>Fácil</td>
+                            <td>$ 20.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
             <p><a href="index.html">Ir al inicio</a></p>
-            <p><a href="reservas.html">Reservar ahora</a></p>
+            <p><a class="cta-link" href="reservas.html">Reservar ahora</a></p>
         </section>
 
         <section>
@@ -118,5 +123,8 @@
             2026
         </p>
     </footer>
+    <a class="whatsapp-link" href="https://wa.me/?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Rueda%20Libre" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+        WhatsApp
+    </a>
 </body>
 </html>

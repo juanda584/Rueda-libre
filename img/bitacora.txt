@@ -404,3 +404,41 @@ Propiedad heredada: color. El párrafo computa rgb(15, 23, 42), igual que el <bo
 Propiedad heredada: font-family. El párrafo computa "Open Sans", Arial, sans-serif, igual que el <body>.
 
 Propiedad no heredada: background-color. El <body> computa rgb(248, 250, 252), mientras que el párrafo computa transparente (rgba(0, 0, 0, 0)); el color de fondo no se hereda.
+
+
+#Especificidad y estados accesibles del menú
+
+En la inspección de estilos computados del navegador, antes de corregirlo, el enlace con class="activo" conservaba el color de #menu a. La regla #menu a tiene especificidad 1-0-1 (un ID, cero clases/pseudoclases y un elemento), mayor que .activo, cuya especificidad es 0-1-0. Por eso ganaba el color definido en #menu a y también su peso de fuente, aunque la clase estuviera presente.
+
+Se corrigió usando #menu a.activo, con especificidad 1-1-1, que supera a #menu a y aplica al enlace actual el azul de botón con texto blanco. No se usó !important ni estilos en línea.
+
+El estado de foco del menú solo añade el contorno visible y no reasigna color ni fondo. Así conserva el aspecto del enlace actual cuando el foco llega a él con Tab, aunque #menu a.activo y #menu a:focus-visible tengan la misma especificidad.
+
+Especificidades comprobadas:
+
+~ #menu a: 1-0-1.
+
+~ .activo: 0-1-0.
+
+~ #menu a.activo: 1-1-1.
+
+~ #menu a:hover y #menu a:focus: 1-1-1 cada uno.
+
+~ .cta-link: 0-1-0.
+
+~ .cta-link:hover y .cta-link:focus: 0-2-0 cada uno.
+
+~ a:focus-visible, input:focus-visible, select:focus-visible y textarea:focus-visible: 0-1-1 cada uno.
+
+Los estados de hover y foco del menú usan azul de botón #2563EB con texto blanco #FFFFFF, combinación aprobada en el mapa de uso de color. La llamada a la acción usa esa misma combinación.
+
+Durante el recorrido con Tab, el control de fecha mostró un segmento interno enfocado en el navegador; para mantener visible el contorno del campo completo también se aplica input[type="date"]:focus-within, con especificidad 0-2-1.
+
+
+#Modelo de caja y medición de tarjeta
+
+En la vista Computed del navegador se midió una tarjeta con width: 18rem (288px), padding: 1rem por lado y border: 2px por lado:
+
+~ Antes, con box-sizing: content-box: ancho total 324px (288px de contenido + 32px de relleno + 4px de borde).
+
+~ Después, con box-sizing: border-box: ancho total 288px; el relleno y el borde quedan incluidos en el ancho declarado.
