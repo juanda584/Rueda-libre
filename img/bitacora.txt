@@ -442,3 +442,8 @@ En la vista Computed del navegador se midió una tarjeta con width: 18rem (288px
 ~ Antes, con box-sizing: content-box: ancho total 324px (288px de contenido + 32px de relleno + 4px de borde).
 
 ~ Después, con box-sizing: border-box: ancho total 288px; el relleno y el borde quedan incluidos en el ancho declarado.
+
+#flexbox devtools
+
+lo que yo he noatado es que no se me ajustan las margenes depende del formato, eso es por la razon qeu para mover el logo como el titulo y el menu de tarifas
+no lo hize con las cajas flexbox, simplemente le di la funcion.
