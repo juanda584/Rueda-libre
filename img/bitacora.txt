@@ -170,6 +170,15 @@ Cualquier página,Correo electrónico,"""mailto:contacto@ruedalibre.com""",Proto
 
 Flexbox se usa para alinear elementos en una sola dimensión; Grid para organizar áreas con filas y columnas o proporciones entre varias áreas. En pantallas estrechas, las cuadrículas de contenido pasan a una columna.
 
+#Bitácora de pruebas responsive
+
+Pruebas realizadas con el viewport del navegador a 360 px, 768 px y 1280 px.
+
+* 360 px: las cuadrículas de portada, rutas y reservas podían apretar el contenido en una pantalla estrecha. Dejé una columna como estilo base; las tarjetas, el formulario y sus campos se apilan.
+* 360 px: las tablas estaban dentro de contenedores con desplazamiento horizontal y sus textos largos podían ensancharlas. Ajusté el tamaño de letra y el relleno, fijé el ancho de las columnas y permití que el texto se parta; las tablas caben sin desplazamiento lateral.
+* 768 px: el ancho mínimo del contenido alteraba la proporción 1:2 de las columnas de reservas. Añadí `min-width: 0` a los elementos y definí las columnas con `minmax(0, 1fr)` y `minmax(0, 2fr)`; la proporción queda preservada.
+* 1280 px: comprobé que la galería muestra tres tarjetas por fila, que las imágenes no superan sus contenedores y que no hay desbordamiento horizontal en las páginas probadas.
+
 ~Nombre completo (nombre)
 
 Dato de prueba: "Lu"

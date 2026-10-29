@@ -47,16 +47,45 @@ main {
     min-height: 100vh;
 }
 
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md);
+}
+
+header > div {
+    order: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    margin: 0;
+}
+
+nav {
+    width: 100%;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-md);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
 .hero {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: center;
-    gap: var(--space-lg);
-    min-height: 60vh;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
 }
 
 .hero-text {
-    align-self: center;
+    text-align: center;
 }
 
 .hero > img {
@@ -93,17 +122,6 @@ img {
     height: auto;
 }
 
-/* Navegación */
-nav ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    gap: var(--space-md);
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
 #menu a {
     display:block;
     border-radius: 0.50rem;
@@ -121,13 +139,6 @@ nav ul {
     font-weight: 700;
     text-decoration: underline;
     text-decoration-thickness: 2px;
-}
-
-header > div {
-    display: flex;
-    align-items: center;
-    gap: var(--space-md);
-    margin: var(--space-md) 0;
 }
 
 /* Componentes */
@@ -169,7 +180,7 @@ header > div {
 
 .route-cards {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: 1fr;
     gap: var(--space-md);
 }
 
@@ -191,13 +202,17 @@ header > div {
 
 .reservation-layout {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: var(--space-lg);
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
     align-items: start;
 }
 
 .reservation-contact section {
     margin-bottom: var(--space-lg);
+}
+
+.reservation-layout > * {
+    min-width: 0;
 }
 
 .reservation-layout form {
@@ -206,8 +221,12 @@ header > div {
 
 .short-fields {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-md);
+    grid-template-columns: 1fr;
+    gap: 0;
+}
+
+fieldset {
+    min-width: 0;
 }
 .imagen-flexible {
     width: 80%;
@@ -311,7 +330,14 @@ table.tabla-datos td a:hover {
 
 .table-scroll {
     width: 100%;
-    overflow-x: auto;
+    min-width: 0;
+}
+
+table:not(.tabla-datos) {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    font-size: 0.75rem;
 }
 
 caption {
@@ -321,9 +347,10 @@ caption {
 
 th,
 td {
-    padding: var(--space-sm);
+    padding: 0.25rem;
     border: 1px solid var(--color-link);
     text-align: left;
+    overflow-wrap: anywhere;
 }
 
 th {
@@ -442,52 +469,79 @@ input[type="date"]:focus-within {
     outline-offset: 3px;
 }
 
-/* Pantallas pequeñas */
-@media (max-width: 40rem) {
-    header {
-        padding: var(--space-md);
+@media (min-width: 768px) {
+    section,
+    fieldset {
+        padding: var(--space-lg);
     }
 
-    nav ul {
-        justify-content: flex-start;
+    header {
+        flex-direction: row;
+        justify-content: space-between;
     }
 
     header > div {
-        flex-wrap: wrap;
+        order: 0;
     }
 
-    section,
-    fieldset {
-        padding: var(--space-md);
+    nav {
+        width: auto;
     }
 
-    .hero,
-    .route-cards,
-    .reservation-layout,
-    .short-fields {
-        grid-template-columns: 1fr;
+    nav ul {
+        justify-content: flex-end;
     }
 
     .hero {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: center;
+        gap: var(--space-lg);
+        min-height: 60vh;
+    }
+
+    .hero-text {
+        text-align: left;
+    }
+
+    .route-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .reservation-layout {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+        gap: var(--space-lg);
+    }
+
+    .short-fields {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: var(--space-md);
-        padding: var(--space-md);
     }
 
     .reservation-layout form {
-        padding: var(--space-md);
+        padding: var(--space-lg);
     }
 
-    #servicios {
-        flex-direction: column;
+    table:not(.tabla-datos) {
+        font-size: 0.875rem;
     }
 
     footer {
-        flex-direction: column;
-        gap: var(--space-md);
+        flex-direction: row;
+        gap: var(--space-lg);
+    }
+}
+
+@media (min-width: 1200px) {
+    main {
+        max-width: 68.75rem;
     }
 
-    .whatsapp-link {
-        right: var(--space-sm);
-        bottom: var(--space-sm);
+    .route-cards {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    th,
+    td {
+        padding: var(--space-sm);
     }
 }
