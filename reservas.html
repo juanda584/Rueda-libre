@@ -27,35 +27,37 @@
     <main>
          <h1>Reserva tu bicicleta</h1>
 
-        <section aria-labelledby="sec-contacto">
-            <h2 id="sec-contacto">Contacto para reservas</h2>
-            <p>
-                Para realizar o confirmar tu reserva, escríbenos a nuestro correo electrónico: 
-                <a href="mailto:juandavidmargarita@gmail.com">juandavidmargarita@gmail.com</a>
-            </p>
-        </section>
+        <div class="reservation-layout">
+            <div class="reservation-contact">
+                <section aria-labelledby="sec-contacto">
+                    <h2 id="sec-contacto">Contacto para reservas</h2>
+                    <p>
+                        Para realizar o confirmar tu reserva, escríbenos a nuestro correo electrónico:
+                        <a href="mailto:juandavidmargarita@gmail.com">juandavidmargarita@gmail.com</a>
+                    </p>
+                </section>
 
-        <section aria-labelledby="sec-horario">
-            <h2 id="sec-horario">Horario de atención</h2>
-            
-            <div class="table-scroll">
-                <table>
-                    <caption>Horario de atención telefónica y presencial</caption>
-                    <tbody>
-                        <tr>
-                            <th scope="row">Lunes a Viernes</th>
-                            <td>7:00 a. m. a 7:00 p. m.</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Sábados, Domingos y Festivos</th>
-                            <td>6:00 a. m. a 2:00 p. m.</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <section aria-labelledby="sec-horario">
+                    <h2 id="sec-horario">Horario de atención</h2>
+                    <div class="table-scroll">
+                        <table>
+                            <caption>Horario de atención telefónica y presencial</caption>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Lunes a Viernes</th>
+                                    <td>7:00 a. m. a 7:00 p. m.</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Sábados, Domingos y Festivos</th>
+                                    <td>6:00 a. m. a 2:00 p. m.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
             </div>
-        </section>
 
-        <form action="" method="post">
+            <form action="" method="post">
             
             <fieldset>
                 <legend>Tus datos</legend>
@@ -63,17 +65,19 @@
                     <label for="nombre">Nombre completo:</label>
                     <input type="text" id="nombre" name="nombre_completo" minlength="3" required>
                 </div>
-                <div class="form-field">
-                    <label for="documento">Número de documento:</label>
-                    <input type="text" id="documento" name="numero_documento" pattern="[0-9]{6,10}" title="Debe contener entre 6 y 10 dígitos numéricos" required>
+                <div class="short-fields">
+                    <div class="form-field">
+                        <label for="documento">Número de documento:</label>
+                        <input type="text" id="documento" name="numero_documento" pattern="[0-9]{6,10}" title="Debe contener entre 6 y 10 dígitos numéricos" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="celular">Celular:</label>
+                        <input type="tel" id="celular" name="celular_contacto" pattern="3[0-9]{9}" title="Debe tener 10 dígitos y empezar por 3" required>
+                    </div>
                 </div>
                 <div class="form-field">
                     <label for="email">Correo electrónico:</label>
                     <input type="email" id="email" name="correo_electronico" required>
-                </div>
-                <div class="form-field">
-                    <label for="celular">Celular:</label>
-                    <input type="tel" id="celular" name="celular_contacto" pattern="3[0-9]{9}" title="Debe tener 10 dígitos y empezar por 3" required>
                 </div>
             </fieldset>
 
@@ -131,7 +135,8 @@
             </fieldset>
 
             <button type="submit">Enviar Reserva de Bicicleta</button>
-        </form>
+            </form>
+        </div>
     </main>
 
     <footer>

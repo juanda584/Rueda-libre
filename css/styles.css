@@ -47,6 +47,23 @@ main {
     min-height: 100vh;
 }
 
+.hero {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    gap: var(--space-lg);
+    min-height: 60vh;
+}
+
+.hero-text {
+    align-self: center;
+}
+
+.hero > img {
+    width: 100%;
+    border-radius: 0.5rem;
+}
+
 header,
 section,
 form,
@@ -148,6 +165,49 @@ header > div {
 #servicios img {
     display: block;
     width: 100%;
+}
+
+.route-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-md);
+}
+
+.route-card {
+    margin: 0;
+}
+
+.route-card img {
+    display: block;
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.route-card h3 {
+    margin-bottom: var(--space-sm);
+}
+
+.reservation-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--space-lg);
+    align-items: start;
+}
+
+.reservation-contact section {
+    margin-bottom: var(--space-lg);
+}
+
+.reservation-layout form {
+    padding: var(--space-lg);
+}
+
+.short-fields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-md);
 }
 .imagen-flexible {
     width: 80%;
@@ -398,6 +458,22 @@ input[type="date"]:focus-within {
 
     section,
     fieldset {
+        padding: var(--space-md);
+    }
+
+    .hero,
+    .route-cards,
+    .reservation-layout,
+    .short-fields {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        gap: var(--space-md);
+        padding: var(--space-md);
+    }
+
+    .reservation-layout form {
         padding: var(--space-md);
     }
 

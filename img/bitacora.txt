@@ -159,6 +159,17 @@ Cualquier página,Correo electrónico,"""mailto:contacto@ruedalibre.com""",Proto
 
 #pruebas de Validación
 
+#Bitácora de maquetación: Grid y Flexbox
+
+* Portada (inicio): Grid en dos dimensiones con `grid-template-columns: repeat(2, minmax(0, 1fr))` y `gap`; `align-items: center` centra verticalmente el texto respecto a la imagen.
+* Galería "Nuestras rutas": Grid con tres columnas iguales (`repeat(3, minmax(0, 1fr))`) y `gap`, porque las tarjetas se organizan en filas y columnas.
+* Reservas: Grid con `grid-template-columns: 1fr 2fr` y `gap`; en el orden contacto/formulario, el formulario recibe el doble de espacio.
+* Fila del formulario (documento y celular): Grid con dos columnas iguales y `gap`, ya que son dos campos cortos que deben alinearse en la misma fila.
+* Encabezado: Flexbox en navegación y marca; es una disposición unidimensional que alinea elementos en una fila con `align-items`, `justify-content` y `gap`.
+* Pie: Flexbox para distribuir los bloques de marca, contacto y horario en una dimensión con `align-items`, `justify-content` y `gap`; puede envolverlos en pantallas estrechas.
+
+Flexbox se usa para alinear elementos en una sola dimensión; Grid para organizar áreas con filas y columnas o proporciones entre varias áreas. En pantallas estrechas, las cuadrículas de contenido pasan a una columna.
+
 ~Nombre completo (nombre)
 
 Dato de prueba: "Lu"
